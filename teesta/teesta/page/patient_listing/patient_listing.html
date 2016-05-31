@@ -1,0 +1,41 @@
+<style type="text/css">
+        .table thead {
+              background-color: darkgrey;
+        }
+        td {
+        	text-align: center;
+        }
+</style>
+
+<div>
+	<table class="table table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th>Patient UserName</th>
+				<th>Admit By</th>
+				<th>City</th>
+				<th>Country</th>
+				<th>Total Cases</th>
+				<th>Amount Billed</th>
+				<th>Registered On</th>
+				<th>Last Updated On</th>
+				<th>Status</th>	
+			</tr>
+		</thead>
+		<tbody>
+			{% $.each(data, function(i, item){ %}
+				<tr>
+					<td><a href="#Form/Patient/{%= item.name %}">{%= item.name %}</a></td>
+					<td>{%= item.added_by %}</td>
+					<td>{%= item.city %}</td>
+					<td>{%= item.country %}</td>
+					<td>{%= item.total_cases %}</td>
+					<td>{%= item.amount_billed %}&#8377;</td>
+					<td>{%= item.registered_on %}</td>
+					<td>{%= item.modified %}</td>
+					<td>{%= item.status %}</td>
+				</tr>
+			{% }); %}
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,112 @@
+<style type="text/css">
+        .table thead {
+              background-color: darkgrey;
+        },
+        td {
+        	text-align: center;
+        }
+        .nav-tabs li {
+          background-color:darkgrey;
+        }
+        button {
+          text-align: right;
+        }
+</style>
+<div class="row">
+  <div class="col-xs-9"></div>
+  <div class="col-xs-3 search" data-fieldtype="Link" data-fieldname="hospital" title="hospital"><input type="text" placeholder="Hospital" options="Hospital">
+  <button type="button" class=" demo btn btn-info">
+    <span class="octicon octicon-search navbar-search-icon"></span> Search
+  </button>
+  </div>
+</div>
+  
+
+
+<div>
+	<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#hospital-data">Registered Hospital</a></li>
+    <li><a data-toggle="tab" href="#patient-data">Registration in Process</a></li>
+  </ul>
+
+  <div class="tab-content">
+  	<div id="hospital-data" class="tab-pane fade in active">
+  		<table class="table table-bordered table-condensed">
+  			<thead>
+  				<tr>
+  					<td><b>Hospital Id</b></td>
+  					<td><b>Hospital Name</b></td>
+  					<td><b>City</b></td>
+  					<td><b>Last Updated On</b></td>
+  					<td><b>Status</b></td>
+            <td><b>Pending With</b></td>
+  				</tr>
+  			</thead>
+  			<tbody>
+          {% $.each(data, function(i, item){ %}
+    				<tr>
+    					<td><a href="#Form/Hospital/{%= item.name %}">{%= item.name %}</a></td>
+    					<td>{%= item.hospital_name %}</td>
+    					<td>{%= item.city %}</td>
+    					<td>{%= item.modified %}</td>
+    					<td>{%= item.status %}</td>
+              <td>{%= item.pending_with %}</td>
+    				</tr>
+  				{% }); %}
+  			</tbody>
+  			</table>
+  	</div>
+  	<div id="patient-data" class="tab-pane fade">
+  		<table class="table table-bordered table-condensed">
+  			<thead>
+  				<tr>
+  					<td><b>Hospital Id</b></td>
+  					<td><b>Hospital Name</b></td>
+  					<td><b>City</b></td>
+  					<td><b>Last Updated On</b></td>
+  					<td><b>Status</b></td>
+  				</tr>
+  			</thead>
+  			<tbody>
+  				<tr>
+  					<td>02356-A</td>
+  					<td>Lilavati Hospital</td>
+  					<td>Mumbai</td>
+  					<td>12/01/2016</td>
+  					<td>Pending</td>
+  				</tr>
+  				<tr>
+  					<td>0568-B</td>
+  					<td>Appolo Hospital</td>
+  					<td>Pune</td>
+  					<td>12/01/2016</td>
+  					<td>Pending</td>
+  				</tr>
+  				<tr>
+  					<td>40450-B</td>
+  					<td>CPR Hospital</td>
+  					<td>Kolhapur</td>
+  					<td>12/01/2016</td>
+  					<td>Pending</td>
+  				</tr>
+  				<tr>
+  					<td>0568-B</td>
+  					<td>Apple Hospital</td>
+  					<td>Kolkata</td>
+  					<td>12/01/2016</td>
+  					<td>Pending</td>
+  				</tr>
+  			</tbody>
+  			</table>
+  	</div>
+  </div>
+</div>
+<div class="container">
+  <ul class="pagination">
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+  </ul>
+</div>
