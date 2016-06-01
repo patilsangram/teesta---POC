@@ -16,8 +16,6 @@ hospital = Class.extend({
   },
   set_primary_action: function() {
     this.page.set_primary_action(__("Add Hospital"), function() {
-     /* doc = frappe.model.get_new_name("Hospital")
-      frappe.set_route("Form", "Hospital", doc);*/
       frappe.new_doc("Hospital")
     });
   },
@@ -51,11 +49,8 @@ hospital = Class.extend({
   },
 
   search_hospital: function() {
-  var me = this
-    console.log("Hello");
+  var me = this;
     me.page.fields_dict.search.$input.on("click",function(){
-      console.log("Hello");
-      console.log(me.page.fields_dict.hospital.get_value())
       var hosp_name = me.page.fields_dict.hospital.get_value();
       if(hosp_name){
         frappe.set_route("Form", "Hospital", hosp_name);
